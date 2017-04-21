@@ -4,6 +4,7 @@
 
 #Great tool for feature engineering or runnign statistical analysis on data 
 #careful on running this for CI about mean and sigma, retransforms dont work mathematically
+#Great explanation : https://www.ime.usp.br/~abe/lista/pdfm9cJKUmFZp.pdf look at the original paper by Box and Cox in middle 90's as well.
 
 y1 <-  #sort(#data vector, +ve in real, example below)
 #y1 <- sort(rexp(100,80))

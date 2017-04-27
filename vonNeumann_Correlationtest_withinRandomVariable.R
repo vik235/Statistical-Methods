@@ -77,42 +77,7 @@ Q_n_alpha= ((2*n)/(n-1)) + qnorm(.05)*2/sqrt(n)
 #Ho(for -ve corr) : rho >= 0 H1: rho <0 
 #reject if Q is more that Q_n_alpha
 
-n=length(y)
-means  =  mean(y)
-diff  =  y-means
- 
-n.neg  =  rep(0,n)
-n.pos  =  rep(0,n)
-n.neg  =  length(diff[diff<0])
-n.pos  =  length(diff[diff>0])
-
-  
- 
-numb.runs  =  0
-  for (j in 2:n) {
-    if (sign(diff[j]) != sign(diff[j-1])) {numb.runs  =  numb.runs + 1}
-    }
-  
-  
-runs.result  =  as.data.frame(cbind(numb.runs, n.pos, n.neg))
-names(runs.result)  =  c("No. runs", "N+", "N-")
-runs.result
-
-# No. runs  N+   N-
-#    29     70   80
-
-mu = 1 + (2*n.neg*n.pos)/(n.neg + n.pos)
-sig2 = (2*n.neg*n.pos*(2*n.neg*n.pos - n.neg - n.pos))/((n.neg + n.pos)^2*(n.neg + n.pos-1))
-
-
-z = (abs(numb.runs-mu)-.5)/sqrt(sig2)
-pvalue = 2*(1-pnorm(abs(z)))
-
-results = cbind(mu,sig2,z,pvalue)
-results
-
-#           mu        sig2        z       pvalue
-#       75.66667   36.91573   7.59841   2.997602e-14
-
-
-
+#Impact on analysis if corr exists 
+ #1 : Low CI coverage than promised 
+ #2 : Large Type I errors, more than what promised. 
+ #: Incorrect variance/SE of sampling distr of Xbar for example, underestimated if +ve corr and corr not accounted for. 

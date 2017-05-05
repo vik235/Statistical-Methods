@@ -7,10 +7,8 @@
 #2. Replace the data values with their ranks: 1 to N (In case of ties, assign the average rank to the
 #                                                    tied values)
 #3. Let W1 be the sum of the ranks for the Xis and let W2 be the sum of the ranks for the Yis
-#4. W1 +W2 =
-#  ??N
-#i=1 i = N(N + 1)=2
-#5. Given the size of the test, , use Table 11 in the Textbook or the R functions qwilcox and
+#4. W1 +W2 =N(N + 1)/2 , in case of no ties. 
+#5. Given the size of the test, alpha, use Table 11 in the Textbook or the R functions qwilcox and
 #pwilcox to set the critical value and to compute the p-value for W1 or W2
 
 #Note: This is solved for a particular case of two sided difference. Process of setting up hypothesis is manual 
